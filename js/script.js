@@ -10,13 +10,17 @@ const calculate = () => {
   // memilih inputbox berat dan tinggi berdasarkan id masing-masing
   const berat = document.getElementById("berat");
   const tinggi = document.getElementById("tinggi");
+  const umur = document.getElementById("umur");
 
   // jika salah satu atau kedua input 'falsy' seperti (null, 0, undefined, '', NaN, false)
   // maka akan muncul alert dan input tidak akan diproses dengan menggunakan return statement
   // return statement akan mengeluarkan operasi dari fungsi
   // kenapa menggunakan property value, bukan textContent? karena elemen ini berupa input yang didalamnya terdapat value
-  if (!berat.value || !tinggi.value) {
+  if (!berat.value || !tinggi.value || !umur.value) {
     alert("Input tidak boleh kosong");
+    return;
+  } else if (berat.value <= 0 || tinggi.value <= 0 || umur.value <= 0) {
+    alert("Input tidak boleh bernilai 0 atau negatif");
     return;
   }
 
